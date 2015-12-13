@@ -1,3 +1,8 @@
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
 struct liste
 {
 	char *s ;
@@ -5,33 +10,7 @@ struct liste
 };
 typedef struct liste LISTE;
 
-#include <stdio.h>
 
-
-
-void main ()
-{
-	FILE *fp ;
-
-LISTE *first ;
-char *ligne [200] ;
-	if (!openfiles(&fp));
-	exit(0) ;
-	first=NULL ;
-
-    // creation de la liste
-	while (fgets(ligne,200,fp))
-	 	{
-	 		insert_tliste(&first,ligne) ;
-
-	 	}
-    // fin de la creation du liste .
-
- // affiche toutes la liste la liste
-  affiche_tliste(first) ;
-
-
-}
   // fonction affiche toute la liste
   void affiche_tliste(LISTE *first)
  {
@@ -61,3 +40,28 @@ if (!(*fp)=fopen("C:\Users\hp\Desktop\ahmed.txt","r"))
     return (1) ;
 }
 
+
+
+void main ()
+{
+	FILE *fp ;
+
+LISTE *first ;
+char *ligne [200] ;
+	if (!openfiles(&fp));
+	exit(0) ;
+	first=NULL ;
+
+    // creation de la liste
+	while (fgets(ligne,200,fp))
+	 	{
+	 		insert_tliste(&first,ligne) ;
+
+	 	}
+    // fin de la creation du liste .
+
+ // affiche toutes la liste la liste
+  affiche_tliste(first) ;
+
+
+}
