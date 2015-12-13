@@ -14,26 +14,26 @@ void main ()
 	FILE *fp ;
 
 LISTE *first ;
-
+char *ligne [200] ;
 	if (!openfiles(&fp));
 	exit(0) ;
 	first=NULL ;
 
     // creation de la liste
-	while (fgets(ligne,1000,fp))
+	while (fgets(ligne,200,fp))
 	 	{
-	 		insert-liste(&first,ligne) ;
+	 		insert_tliste(&first,ligne) ;
 
 	 	}
     // fin de la creation du liste .
 
  // affiche toutes la liste la liste
-  affiche-tliste(first) ;
+  affiche_tliste(first) ;
 
 
 }
   // fonction affiche toute la liste
-  void affiche-tliste(LISTE *first)
+  void affiche_tliste(LISTE *first)
  {
  	LISTE *p ;
  	for (p=first ; p ; p=p->next)
@@ -43,7 +43,7 @@ LISTE *first ;
 
 
 //fonction insertion
- void insert-liste(LISTE**first,char ligne)
+ void insert_liste(LISTE**first,char ligne)
  {
    LSITE *p ;
 p = ((LISTE*)malloc(sizeof(LISTE)) ;
