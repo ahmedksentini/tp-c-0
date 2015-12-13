@@ -45,18 +45,18 @@ char *ligne [200] ;
 //fonction insertion
  void insert_liste(LISTE**first,char ligne)
  {
-   LSITE *p ;
-p = ((LISTE*)malloc(sizeof(LISTE)) ;
- p->S=(char*)malloc(strlen(ligne)+1) ;
-strcpy(p->s,ligne)
- p->next = *first ;
+   LISTE *p ;
+p =(LISTE*)malloc(sizeof(LISTE));
+p->s =(char*)malloc(strlen(ligne)+1) ;
+strcpy(p->s,ligne);
+ p->next=*first ;
  *first = p ;
 }
 //fonction open file
 
 int openfiles (FILE **fp)
 {
-    if (!(*fp)=fopen("ahmed.txt","r"))
+if (!(*fp)=fopen("C:\Users\hp\Desktop\ahmed.txt","r"))
         return (0);
     return (1) ;
 }
