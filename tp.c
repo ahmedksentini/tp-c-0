@@ -1,12 +1,13 @@
-#include <stdio.h>
-#include <sting.h>
-
 struct liste 
 {
 	char *s ;
 	struct liste *next
 };
 typedef struct liste LISTE ;
+
+#include <stdio.h>
+#include <sting.h>
+
 
 void main () 
 {
