@@ -50,7 +50,7 @@ char *ligne [200] ;
 
  // affiche toutes la liste la liste
   affiche_tliste(first) ;
-  fclose(fp) ;
+ 
 
   return 0;
 }
