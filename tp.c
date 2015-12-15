@@ -1,18 +1,21 @@
-
-
 #include <stdio.h>
 #include <stdlib.h>
 
+struct liste
+{
+	char *s ;
+	struct liste *next ;
+};
+typedef struct liste LISTE;
 
   // fonction affiche toute la liste
   void affiche_tliste(LISTE *first)
  {
  	LISTE *p ;
  	for (p=first ; p ; p=p->next)
- 	 printf-data (p->s) ;
+ 	 printf ("%s",p->s) ;
 
  }
-
 
 //fonction insertion
  void insert_liste(LISTE**first,char ligne)
@@ -24,24 +27,16 @@ strcpy(p->s,ligne);
  p->next=*first ;
  *first = p ;
 }
-//fonction open file
-
-int openfiles (FILE **fp)
-{
-if (!(*fp)=fopen("C:\Users\hp\Desktop\ahmed.txt","r"))
-        return (0);
-    return (1) ;
-}
 
 
+int main(int argc, char *argv[])
 
-void main ()
 {
 	FILE *fp ;
 
 LISTE *first ;
 char *ligne [200] ;
-	if (!openfiles(&fp));
+	if (!(fp=fopen("ahmed.txt","r")))
 	exit(0) ;
 	first=NULL ;
 
@@ -55,6 +50,7 @@ char *ligne [200] ;
 
  // affiche toutes la liste la liste
   affiche_tliste(first) ;
+  fclose(fp) ;
 
-
+  return 0;
 }
