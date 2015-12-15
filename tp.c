@@ -18,11 +18,11 @@ typedef struct liste LISTE;
  }
 
 //fonction insertion
- void insert_liste(LISTE**first,char ligne)
+ void insert_tliste(LISTE**first,char ligne)
  {
    LISTE *p ;
 p =(LISTE*)malloc(sizeof(LISTE));
-p->s =(char*)malloc(strlen(ligne)+1) ;
+p->s =(char*)malloc(strlen(*ligne)+1) ;
 strcpy(p->s,ligne);
  p->next=*first ;
  *first = p ;
@@ -41,7 +41,7 @@ char *ligne [200] ;
 	first=NULL ;
 
     // creation de la liste
-	while (fgets(ligne,200,fp))
+	while (fgets(*ligne,200,fp))
 	 	{
 	 		insert_tliste(&first,ligne) ;
 
