@@ -1,4 +1,4 @@
-#include <stdio.h>
+ #include <stdio.h>
 #include <stdlib.h>
 
 struct liste {
@@ -8,11 +8,15 @@ struct liste {
 typedef struct liste LISTE;
 
 // fonction affiche toute la liste
-void affiche_tliste(LISTE *first) {
-    LISTE *p;
-    for (p = first; p; p = p->next)
-        printf("%s", p->s);
+void affiche_tliste(LISTE *first)
+{
 
+   if (first)
+   {
+
+   affiche_tliste(first->next) ;
+        printf("%s",first->s);
+   }
 }
 
 //fonction insertion
