@@ -3,13 +3,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct liste
-{
-	char *s ;
-	struct liste *next
-};
-typedef struct liste LISTE;
-
 
   // fonction affiche toute la liste
   void affiche_tliste(LISTE *first)
