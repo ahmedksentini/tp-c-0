@@ -15,7 +15,7 @@ void affiche_tliste(LISTE *first)
    {
 
    affiche_tliste(first->next) ;
-        printf("%s",first->s);
+        printf("\n%s",first->s);
    }
 }
 
@@ -41,36 +41,32 @@ void recherche_chaine( LISTE * first, char* s_chaine)
         current = current ->next;
         else
         {
-             printf("%s",current->s);
+             printf("\n%s",current->s);
             current = current->next;
         }
     }
 }
 
-//fonction de liberation
 
-void liberer(first)
-LISTE *first ;
-{
-if(first)
-{
-liberer(first ->next);
-free(first);
-}
 //fonction supprimer
 
-void supprimer_ligne(LISTE * first , char* s_chaine)
+void supprimer_ligne(LISTE ** first , char* s_chaine)
 {
     LISTE * current;
-    current =  first;
-    while (current != NULL)
+
+if (*first)
+
     {
-        if ( strstr ((current->s), s_chaine) == NULL)
-        current = current ->next;
+        if ( strstr (((*first)->s), s_chaine) == NULL)
+
+        supprimer_ligne(&((*first)->next), s_chaine) ;
+
         else
         {
-             liberer (current) ;
-            current = current->next;
+            current = *first ;
+            *first = (*first)->next ;
+           free(current) ;
+ supprimer_ligne(&((*first)), s_chaine) ;
         }
     }
 
@@ -84,8 +80,8 @@ int main(int argc, char *argv[]) {
 
     LISTE *first;
     char ligne[200];
-     char sous_chaine1 [20], s_chaine [20],sous_chaine2 [20] ;
-    if (!(fp = fopen("ahmed.txt", "r")))
+     char sous_chaine1 [20], s_chaine [20], sous_chaine2 [20] ;
+    if (!(fp = fopen("ahmed.txt", "r++")))
     {
 
 
@@ -102,12 +98,11 @@ int main(int argc, char *argv[]) {
     affiche_tliste(first);
 
 printf ("\n\n \a  donner la chaine a chercher :");
-    scanf ("%s", &sous_chaine1[0]);
+    scanf ("%s", &sous_chaine1);
     recherche_chaine(first, sous_chaine1);
 
 printf("\n\n donner la chaine pour effacer les elts ui contiennet:");
-  scanf("%s",&sous_chaine2[0]) ;
-  supprimer_ligne(first, sous_chaine2);
-return (0);
+  scanf("%s",&sous_chaine2) ;
+supprimer_ligne(&first,sous_chaine2) ;
+affiche_tliste(first);
 }
-
